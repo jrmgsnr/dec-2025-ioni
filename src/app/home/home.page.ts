@@ -55,15 +55,15 @@ export class HomePage {
     const clue = _.find(CLUES, { code: inputCode });
     const exists = _.some(this.unlockedClues, clue);
 
-    console.log('DEBUG', this.unlockedClues, clue)
-
     if (clue && !exists) {
       this.unlockedClues.unshift(clue);
       localStorage.setItem('unlockedClues', JSON.stringify(this.unlockedClues));
     } else {
       const toast = this.toastCtrl.create({
         message: clue && exists ? 'Clue already unlocked' : 'Invalid code',
-        duration: 1000,
+        duration: 1500,
+        cssClass: ['ion-text-center'],
+        mode: 'ios',
         position: 'middle'
       });
 

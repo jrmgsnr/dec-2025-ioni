@@ -24,3 +24,17 @@
 @import "@ionic/angular/css/text-alignment.css";
 @import "@ionic/angular/css/text-transformation.css";
 @import "@ionic/angular/css/flex-utils.css";
+
+
+ion-toast {
+  color: #006A71;
+  font-size: 25px;
+  font-weight: 600;
+  --background: #9ACBD0;
+  --width: 200px;
+  --height: 150px;
+
+  ::part(container) {
+    display: flex;
+  }
+}
