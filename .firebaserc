@@ -1,0 +1,15 @@
+{
+  "projects": {
+    "default": "yearend-2025"
+  },
+  "targets": {
+    "yearend-2025": {
+      "hosting": {
+        "app": [
+          "dec-2025-ioni"
+        ]
+      }
+    }
+  },
+  "etags": {}
+}
