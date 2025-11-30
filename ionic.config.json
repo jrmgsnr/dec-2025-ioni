@@ -1,0 +1,7 @@
+{
+  "name": "dec-2025-ioni",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}
