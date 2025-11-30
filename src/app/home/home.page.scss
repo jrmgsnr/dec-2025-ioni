@@ -1,27 +1,85 @@
-#container {
-  text-align: center;
+:host {
+  ion-content {
+    --padding-bottom: 24px;
+  --background: #F2EFE7;
 
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
-}
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      max-width: 600px;
+      width: calc(100% - 48px);
+      margin: auto;
 
-#container strong {
-  font-size: 20px;
-  line-height: 26px;
-}
+      h1 {
+        color: #006A71;
+        margin: 24px 0;
+        font-size: 100px;
+        font-weight: 700;
+      }
 
-#container p {
-  font-size: 16px;
-  line-height: 22px;
+      ion-input {
+        --border-color: #006A71;
+        color: #006A71;
+        font-size: 25px;
+        font-weight: 700;
+        --padding-bottom: 0;
+        --border-radius: 16px;
+        margin-bottom: 16px;
+      }
 
-  color: #8c8c8c;
+      ion-button {
+        --background: #006A71;
+        --background-hover: #006A71;
+        --background-activated: 
+        --color: #F2EFE7;
+        font-size: 16px;
+        font-weight: 600;
+      }
 
-  margin: 0;
-}
+      .clues-container {
+        border: 1px solid #006A71;
+        border-radius: 16px;
+        padding: 8px;
+        margin-top: 24px;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
 
-#container a {
-  text-decoration: none;
+        .clue {
+          color: #F2EFE7;
+          border-radius: 8px;
+          padding: 8px;
+          background: #006A71;
+          display: flex;
+          gap: 14px;
+          align-items: center;
+          border: 8px solid #006A71;
+
+          &.special {
+            border: 8px solid #D3AF37;
+          }
+
+          .code {
+            font-size: 20px;
+            font-weight: 700;
+            line-height: normal;
+          }
+
+          .text {
+            font-size: 16px;
+            font-weight: 600;
+            line-height: normal;
+          }
+        }
+      }
+
+      @media only screen and (max-width: 540px) {
+        h1 {
+          font-size: 50px;
+        }
+      }
+    }
+  }
 }

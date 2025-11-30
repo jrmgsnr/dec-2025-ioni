@@ -1,20 +1,38 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <div class="container">
+    <h1 class="ion-text-center">
+      Year-End Party 2025
+    </h1>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+    <ion-input
+      class="ion-text-center"
+      mode="md"
+      fill="outline"
+      type="text"
+      inputmode="numeric"
+      maxlength="6"
+      placeholder="Enter 6-digit code"
+      [formControl]="code"
+    ></ion-input>
+  
+    <ion-button
+      mode="ios"
+      class="ion-no-margin"
+      [disabled]="!isFormValid"
+      (click)="showCode()"
+    >
+      SHOW CLUE
+    </ion-button>
+
+    @if (unlockedClues.length) {
+      <div class="clues-container">
+        @for (clue of unlockedClues; track $index) {
+          <div [ngClass]="{ 'special' : clue.isSpecial }" class="clue">
+            <p class="ion-no-margin code">{{ clue.code }}</p>
+            <p class="ion-no-margin text">{{ clue.clue }}</p>
+          </div>
+        }
+      </div>
+    }
   </div>
 </ion-content>
