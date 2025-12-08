@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
-import { AfterViewInit, Component } from '@angular/core';
-import { IonicModule, ToastController } from '@ionic/angular';
+import { AfterViewInit, Component, ViewChild } from '@angular/core';
+import { IonicModule, ToastController, IonContent } from '@ionic/angular';
 import { FormControl, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import * as _ from 'lodash';
 import gsap from 'gsap';
@@ -26,6 +26,8 @@ interface Clue {
   ]
 })
 export class HomePage implements AfterViewInit {
+  @ViewChild(IonContent, { static: true }) content!: IonContent;
+
   code = new FormControl('', [
     Validators.required,
     Validators.minLength(6),
@@ -48,33 +50,40 @@ export class HomePage implements AfterViewInit {
     return this.code.valid;
   }
 
-  scrollAnimation() {
+  async scrollAnimation() {
     const duration = 2;
     gsap.registerPlugin(ScrollTrigger);
 
+    const scroller = await this.content.getScrollElement();
+
     let runAnimation = gsap.timeline(
-      // {
-      //   scrollTrigger: {
-      //     trigger: '#container',
-      //     start: "top top",
-      //     end: "+=146",
-      //     pin: true,
-      //     scrub: true,
-      //     markers: true
-      //   }
-      // }
+      {
+        scrollTrigger: {
+          trigger: '#container',
+          scroller: scroller,
+          start: "top top",
+          end: "+=122",
+          pin: true,
+          scrub: true,
+          markers: true,
+          pinSpacing: false
+        }
+      }
     );
 
     runAnimation.to("#header", {
       duration: duration,
       height: 122,
+      zIndex: 999,
       ease: "none"
     }, "<");
 
     runAnimation.to("#container", {
       duration: duration,
       paddingTop: 146,
-      ease: "none"
+      height: "auto",
+      minHeight: "100vh",
+      ease: "none",
     }, "<")
 
     runAnimation.to("#logo-container", {
@@ -96,6 +105,13 @@ export class HomePage implements AfterViewInit {
       ease: "none"
     }, "<")
 
+    // runAnimation.to("#header", {
+    //   zIndex: 999
+    // }, "<");
+
+    runAnimation.to(".pin-spacer", {
+      height: "unset"
+    }, "<")
   }
 
   ngAfterViewInit() {
