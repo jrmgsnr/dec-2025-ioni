@@ -28,10 +28,12 @@
       }
   
       ion-button {
+        --border-radius: 14px;
         --background: #006A71;
         --background-hover: #006A71;
-        --background-activated: 
+        --background-activated: #9ACBD0;
         --color: #F2EFE7;
+        height: 50px;
         font-size: 16px;
         font-weight: 600;
       }
