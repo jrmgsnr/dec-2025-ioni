@@ -14,7 +14,14 @@
       h1 {
         color: #006A71;
         margin: 24px 0;
-        font-size: 100px;
+        font-size: 50px;
+        font-weight: 700;
+      }
+
+      .puzzle-code {
+        color: #005461;
+        margin: 24px 0;
+        font-size: 26px;
         font-weight: 700;
       }
 
@@ -31,10 +38,17 @@
       ion-button {
         --background: #006A71;
         --background-hover: #006A71;
-        --background-activated: 
+        --background-activated: #9ACBD0;
         --color: #F2EFE7;
         font-size: 16px;
         font-weight: 600;
+
+        &.change-puzzle {
+          --background: #A02334;
+          --background-hover: #A02334;
+          --background-activated: #FF6363;
+          margin-top: 16px;
+        }
       }
 
       .clues-container {
@@ -72,12 +86,6 @@
             font-weight: 600;
             line-height: normal;
           }
-        }
-      }
-
-      @media only screen and (max-width: 540px) {
-        h1 {
-          font-size: 50px;
         }
       }
     }

@@ -1,10 +1,11 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
-import { IonicModule, ToastController } from '@ionic/angular';
+import { Component, ViewChild } from '@angular/core';
+import { IonicModule, ToastController, ModalController } from '@ionic/angular';
 import { FormControl, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import * as _ from 'lodash';
 
 import { CLUES } from '../clues';
+import { PuzzleInputComponent } from '../puzzle-input/puzzle-input.component';
 
 interface Clue {
   code: string,
@@ -30,15 +31,25 @@ export class HomePage {
     Validators.maxLength(6)
   ]);
 
+  validClues: Clue[] = [];
   unlockedClues: Clue[] = [];
+  puzzleCode: any;
 
   constructor(
-    private toastCtrl: ToastController
+    private toastCtrl: ToastController,
+    private modalCtrl: ModalController
   ) {
-    let cachedData = localStorage.getItem('unlockedClues'); 
+    let cachedData = localStorage.getItem('unlockedClues');
+    this.puzzleCode = localStorage.getItem('puzzleCode');
 
     if (cachedData) {
       this.unlockedClues = JSON.parse(cachedData);
+    }
+
+    if (this.puzzleCode) {
+      this.validClues = _.get(CLUES, this.puzzleCode);
+    } else {
+      this.showModal();
     }
   }
 
@@ -52,7 +63,7 @@ export class HomePage {
 
   async showCode() {
     const inputCode = this.code.value ?? '';
-    const clue = _.find(CLUES, { code: inputCode });
+    const clue = _.find(this.validClues, { code: inputCode });
     const exists = _.some(this.unlockedClues, clue);
 
     if (clue && !exists) {
@@ -71,5 +82,32 @@ export class HomePage {
     }
 
     this.code.reset();
+  }
+
+  resetGame() {
+    this.puzzleCode = '';
+    this.validClues = [];
+    this.unlockedClues = [];
+    localStorage.clear();
+
+    this.showModal();
+  }
+
+  async showModal() {
+    if (_.isEmpty(this.puzzleCode)) {
+      const modal = await this.modalCtrl.create({
+        component: PuzzleInputComponent,
+        backdropDismiss: false
+      });
+  
+      modal.onDidDismiss().then((data) => {
+        this.puzzleCode = _.get(data, 'data');
+        this.validClues = _.get(CLUES, this.puzzleCode);
+  
+        localStorage.setItem('puzzleCode', this.puzzleCode);
+      })
+  
+      modal.present();
+    }
   }
 }

@@ -4,6 +4,8 @@
       Year-End Party 2025
     </h1>
 
+    <p class="puzzle-code">PUZZLE CODE: {{ puzzleCode }}</p>
+
     <ion-input
       class="ion-text-center"
       mode="md"
@@ -34,5 +36,13 @@
         }
       </div>
     }
+
+    <ion-button
+      mode="ios"
+      class="ion-no-margin change-puzzle"
+      (click)="resetGame()"
+    >
+      RESET GAME
+    </ion-button>
   </div>
 </ion-content>

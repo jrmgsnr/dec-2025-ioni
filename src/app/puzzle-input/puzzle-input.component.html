@@ -1,0 +1,24 @@
+<ion-content>
+  <div>
+    <h1 class="ion-text-center ion-no-margin">Enter puzzle code</h1>
+  
+    <ion-input
+      class="ion-text-center"
+      mode="md"
+      fill="outline"
+      type="text"
+      inputmode="numeric"
+      maxlength="6"
+      [formControl]="puzzleCode"
+    ></ion-input>
+  
+    <ion-button
+      class="ion-no-margin"
+      expand="block"
+      [disabled]="!isFormValid"
+      (click)="submitCode()"
+    >
+      Enter
+    </ion-button>
+  </div>
+</ion-content>
