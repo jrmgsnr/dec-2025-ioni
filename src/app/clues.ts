@@ -7,57 +7,57 @@ export const CLUES = {
   [PUZZLE_CODES.MAIN_PUZZLE]: [
     {
       code: "601458",
-      clue: "Of the [PROJECT 4] project and the [PROJECT 1] project, one will be headed by [PERSON 1] and the other will have a budget of [FIGURE 3].",
+      clue: "Of the Bocaue project and the Malolos project, one will be headed by St. Timothy Construction and the other will have a budget of PHP 96 Million.",
       isSpecial: false
     },
     {
       code: "930285",
-      clue: "The [FIGURE 1] project begins 1 month before the [PROJECT 1] project.",
+      clue: "The PHP 50 Million project begins 1 month before the Malolos project.",
       isSpecial: false
     },
     {
       code: "163024",
-      clue: "The [FIGURE 3] project is either the [PROJECT 3] project or [PERSON 2]'s project.",
+      clue: "The PHP 96 Million project is either the Pulilan project or Syms Construction's project.",
       isSpecial: false
     },
     {
       code: "821540",
-      clue: "[PERSON 1]'s project is either the [FIGURE 2] project or the job starting in July.",
+      clue: "St. Timothy Construction's project is either the PHP 70 Million project or the job starting in July.",
       isSpecial: false
     },
     {
       code: "687591",
-      clue: "[PERSON 3]'s project begins sometime after the [PROJECT 2] project.",
+      clue: "Topnotch Builders's project begins sometime after the Central Luzon project.",
       isSpecial: false
     },
     {
       code: "086513",
-      clue: "Neither [PERSON 3]'s project nor the [PROJECT 4] project is the [FIGURE 4] project.",
+      clue: "Neither Topnotch Builder's project nor the Bocaue project is the PHP 99 Million project.",
       isSpecial: false
     },
     {
       code: "039275",
-      clue: "[PERSON 2]'s project begins sometime before the [FIGURE 4] project.",
+      clue: "Syms Construction's project begins sometime before the PHP 99 Million project.",
       isSpecial: false
     },
     {
       code: "495367",
-      clue: "The job starting in April won't have a budget of [FIGURE 2].",
+      clue: "The job starting in April won't have a budget of PHP 70 Million.",
       isSpecial: false
     },
     {
       code: "831962",
-      clue: "The [FIGURE 2] project begins in May.",
+      clue: "The PHP 70 Million project begins in May.",
       isSpecial: true
     },
     {
       code: "948037",
-      clue: "[PERSON 3]'s project will have a budget of [FIGURE 1].",
+      clue: "Topnotch Builder's project will have a budget of PHP 50 Million.",
       isSpecial: true
     },
     {
       code: "351782",
-      clue: "[PROJECT 3] has the lowest budget.",
+      clue: "Pulilan project has the lowest budget.",
       isSpecial: true
     }
   ],
