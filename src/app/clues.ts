@@ -57,7 +57,7 @@ export const CLUES = {
     },
     {
       code: "351782",
-      clue: "Pulilan project has the lowest budget.",
+      clue: "Malolos project has the highest budget.",
       isSpecial: true
     }
   ],
